@@ -4,9 +4,11 @@ var correctCount = 0;
 var incorrectCount = 0;
 var unansweredCount = 0;
 
-// Create answer arrays
-var correctAnswers = ["Kayla", "Grogan", "26", "February 23, 1994"];
-var selectedAnswers = ["", "", "", ""];
+// Grab counter text from HTML
+var secondsText = document.querySelector("#seconds-count");
+var correctText = document.querySelector("#correct-count");
+var incorrectText = document.querySelector("#incorrect-count");
+var unansweredText = document.querySelector("#unanswered-count");
 
 // Grab buttons from HTML
 var startBtn = document.querySelector("#start-button");
@@ -48,7 +50,10 @@ doneBtn.onclick = function() {
     checkGuesses(ageGuess, ageAnswer);
     checkGuesses(birthdayGuess, birthdayAnswer);
 
-
+    // Update counters in HTML
+    correctText.innerHTML = correctCount;
+    incorrectText.innerHTML = incorrectCount;
+    unansweredText.innerHTML = unansweredCount;
 }
 
 function checkGuesses(guess, answer) {
@@ -56,6 +61,7 @@ function checkGuesses(guess, answer) {
     // Check whether any radio button was checked in the group
     if (guess != null) {
         // If a radio button was checked, see if it matches the correct answer
+        // Update the appropriate counter accordingly
         if (guess.value === answer.value) {
             correctCount++;
         }
