@@ -1,5 +1,5 @@
 // Create counter variables
-var secondsCount = 120;
+var secondsCount = 10;
 var correctCount = 0;
 var incorrectCount = 0;
 var unansweredCount = 0;
@@ -25,14 +25,41 @@ var lastNameAnswer = document.querySelector("#grogan");
 var ageAnswer = document.querySelector("#age26");
 var birthdayAnswer = document.querySelector("#feb-23-1994");
 
-// When Start button is clicked, hide Start page and show Trivia page
-startBtn.onclick = function() {
-    startPage.classList.add("hide");
-    triviaPage.classList.remove("hide");
+// Initialize variable that will hold the counter
+var id;
+
+// Function to decrement the timer
+function countdown() {
+    secondsText.innerHTML = secondsCount-=1;
+
+    // When the timer gets to 0, end the game
+    if (secondsCount === 0) {
+        endGame()
+    }
 }
 
-// When Done button is clicked...
+// When Start button is clicked...
+startBtn.onclick = function() {
+    // Hide Start page and show Trivia page
+    startPage.classList.add("hide");
+    triviaPage.classList.remove("hide");
+
+    // Initialize the timer
+    secondsText.innerHTML = secondsCount;
+
+    // Run the countdown function every 1000 milliseconds
+    id = setInterval(countdown, 1000);
+}
+
+// When Done button is clicked, end the game
 doneBtn.onclick = function() {
+    endGame();
+}
+
+// Function that runs when either the Done button is clicked or the timer runs out
+function endGame() {
+    // Stop the timer
+    clearInterval(id);
 
     // Hide Trivia page and show Done page
     triviaPage.classList.add("hide");
@@ -57,7 +84,6 @@ doneBtn.onclick = function() {
 }
 
 function checkGuesses(guess, answer) {
-
     // Check whether any radio button was checked in the group
     if (guess != null) {
         // If a radio button was checked, see if it matches the correct answer
