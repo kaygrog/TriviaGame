@@ -1,0 +1,42 @@
+HTML Pseudocode
+    All Pages
+        Create h1 to hold page title
+
+    Start Page
+        Create Start button
+
+    Trivia Page
+        1. Create span within an h2 to hold seconds counter
+        2. Create h2s to hold questions
+        3. Under each question h2, create radio button inputs
+            - Make sure they're grouped
+            - Make sure you can only select one at a time
+        4. Create Done button
+    
+    Done Page
+        1. Create h2 to hold "All done!"
+        2. Create spans within h3s to hold:
+            - Correct Answers
+            - Incorrect Answers
+            - Unanswered
+
+    Question:   How do I hide a div and display it when needed?
+                - Create placeholder divs and then inject HTML into them using JS?
+                - Create different HTML files that hold the pages?
+
+JS Pseudocode
+    1. Create counter variables: Seconds, Correct Answers, Incorrect Answers, Unanswered
+        a. Seconds initialized at 120
+        b. Correct Answers, Incorrect Answers, and Unanswered initialized at 0
+    2. Create an array of correct answers
+    3. When Start button is clicked...
+        a. Show HTML for Trivia Page
+        b. Make Seconds counter decrement every 1 second
+        c. Store selected answers in an array
+            - If nothing is selected for a question, store a blank string in the array
+    4. When Done button is clicked...
+        a. Loop through selected answers array and compare to correct answers array
+            i.      If selected answer is blank, ++Unanswered
+            ii.     If selected answer === correct answer, ++Correct Answers
+            iii.    If selected answer !== correct answer, ++Incorrect Answers
+        b. Show HTML for Done Page
