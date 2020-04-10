@@ -4,70 +4,187 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trivia Game</title>
+
+    <!-- Import Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- Import custom CSS -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 <body>
-    <h1>Totally Trivial Trivia!</h1>
-    <div id="start-page">
-        <button id="start-button">Start</button>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8">
+
+                <h1>Totally Trivial Trivia!</h1>
+
+                <div id="start-page">
+                    <button id="start-button">Start</button>
+                </div>
+
+                <div id="trivia-page" class="hide">
+                    <div class="alert alert-info" role="alert">
+                        <p>Time Remaining: <span id="seconds-count"></span> Seconds</p>
+                    </div>
+                    
+                    <form>
+                        <!-- First Name Question -->
+                        <fieldset class="form-group">
+                            <div class="row">
+                                <legend class="col-form-label col-6 pt-0">What is my first name?</legend>
+                                <div class="col-6">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="first-name" value="kayla" id="kayla">
+                                        <label class="form-check-label" for="kayla">
+                                            Kayla
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="first-name" value="jane" id="jane">
+                                        <label class="form-check-label" for="jane">
+                                            Jane
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="first-name" value="tom" id="tom">
+                                        <label class="form-check-label" for="tom">
+                                            Tom
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="first-name" value="ursula" id="ursula">
+                                        <label class="form-check-label" for="ursula">
+                                            Ursula
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <!-- Last Name Question -->
+                        <fieldset class="form-group">
+                            <div class="row">
+                                <legend class="col-form-label col-6 pt-0">What is my last name?</legend>
+                                <div class="col-6">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="last-name" value="harrison" id="harrison">
+                                        <label class="form-check-label" for="harrison">
+                                            Harrison
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="last-name" value="thomas" id="thomas">
+                                        <label class="form-check-label" for="thomas">
+                                            Thomas
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="last-name" value="grogan" id="grogan">
+                                        <label class="form-check-label" for="grogan">
+                                            Grogan
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="last-name" value="rogan" id="rogan">
+                                        <label class="form-check-label" for="rogan">
+                                            Rogan
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <!-- Age Question -->
+                        <fieldset class="form-group">
+                            <div class="row">
+                                <legend class="col-form-label col-6 pt-0">What is my age?</legend>
+                                <div class="col-6">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="age" value="age24" id="age24">
+                                        <label class="form-check-label" for="age24">
+                                            24
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="age" value="age26" id="age26">
+                                        <label class="form-check-label" for="age26">
+                                            26
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="age" value="age28" id="age28">
+                                        <label class="form-check-label" for="age28">
+                                            28
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="age" value="age30" id="age30">
+                                        <label class="form-check-label" for="age30">
+                                            30
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <!-- DOB Question -->
+                        <fieldset class="form-group">
+                            <div class="row">
+                                <legend class="col-form-label col-6 pt-0">What is my date of birth?</legend>
+                                <div class="col-6">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="birthday" value="jan-1-1993" id="jan-1-1993">
+                                        <label class="form-check-label" for="jan-1-1993">
+                                            January 1, 1993
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="birthday" value="nov-2-1991" id="nov-2-1991">
+                                        <label class="form-check-label" for="nov-2-1991">
+                                            November 2, 1991
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="birthday" value="sep-15-1995" id="sep-15-1995">
+                                        <label class="form-check-label" for="sep-15-1995">
+                                            September 15, 1995
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="birthday" value="feb-23-1994" id="feb-23-1994">
+                                        <label class="form-check-label" for="feb-23-1994">
+                                            February 23, 1994
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>                    
+
+                    <button id="done-button">Done</button>
+                </div>
+
+                <div id="done-page" class="hide">
+                    <h2>All done!</h2>
+                    <h3>Correct Answers: <span id="correct-count"></span></h3>
+                    <h3>Incorrect Answers: <span id="incorrect-count"></span></h3>
+                    <h3>Unanswered: <span id="unanswered-count"></span></h3>
+                </div>
+            </div>
+            <div class="col-2"></div>
+        </div>
     </div>
 
-    <div id="trivia-page" class="hide">
-        <h2>Time Remaining: <span id="seconds-count"></span> Seconds</h2>
+    <!-- Import Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
-        <h2>What is my first name?</h2>
-        <input type="radio" id="kayla" name="first-name" value="kayla">
-        <label for="kayla">Kayla</label>
-        <input type="radio" id="jane" name="first-name" value="jane">
-        <label for="jane">Jane</label>
-        <input type="radio" id="thomas" name="first-name" value="thomas">
-        <label for="thomas">Thomas</label>
-        <input type="radio" id="ursula" name="first-name" value="ursula">
-        <label for="ursula">Ursula</label>
-
-        <h2>What is my last name?</h2>
-        <input type="radio" id="harrison" name="last-name" value="harrison">
-        <label for="harrison">Harrison</label>
-        <input type="radio" id="thomas" name="last-name" value="thomas">
-        <label for="thomas">Thomas</label>
-        <input type="radio" id="grogan" name="last-name" value="grogan">
-        <label for="grogan">Grogan</label>
-        <input type="radio" id="rogan" name="last-name" value="rogan">
-        <label for="rogan">Rogan</label>
-
-        <h2>What is my age?</h2>
-        <input type="radio" id="age24" name="age" value="age24">
-        <label for="age24">24</label>
-        <input type="radio" id="age26" name="age" value="age26">
-        <label for="age26">26</label>
-        <input type="radio" id="age28" name="age" value="age28">
-        <label for="age28">28</label>
-        <input type="radio" id="age30" name="age" value="age30">
-        <label for="age30">30</label>
-
-        <h2>What is my date of birth?</h2>
-        <input type="radio" id="jan-1-1993" name="birthday" value="jan-1-1993">
-        <label for="jan-1-1993">January 1, 1993</label>
-        <input type="radio" id="nov-2-1991" name="birthday" value="nov-2-1991">
-        <label for="nov-2-1991">November 2, 1991</label>
-        <input type="radio" id="sep-15-1995" name="birthday" value="sep-15-1995">
-        <label for="sep-15-1995">September 15, 1995</label>
-        <input type="radio" id="feb-23-1994" name="birthday" value="feb-23-1994">
-        <label for="feb-23-1994">February 23, 1994</label>
-        
-        <br><br>
-
-        <button id="done-button">Done</button>
-    </div>
-
-    <div id="done-page" class="hide">
-        <h2>All done!</h2>
-        <h3>Correct Answers: <span id="correct-count"></span></h3>
-        <h3>Incorrect Answers: <span id="incorrect-count"></span></h3>
-        <h3>Unanswered: <span id="unanswered-count"></span></h3>
-    </div>
-
+    <!-- Import jQuery JS -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+    <!-- Import custom JS -->
     <script type="text/javascript" src="assets/javascript/app.js"></script>
 </body>
 </html>

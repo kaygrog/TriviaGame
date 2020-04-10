@@ -1,5 +1,5 @@
 // Create counter variables
-var secondsCount = 10;
+var secondsCount = 1000;
 var correctCount = 0;
 var incorrectCount = 0;
 var unansweredCount = 0;
@@ -71,7 +71,7 @@ function endGame() {
     var ageGuess = document.querySelector("input[name='age']:checked");
     var birthdayGuess = document.querySelector("input[name='birthday']:checked");
 
-    // Call function to check whether guesses were correct
+    // Check whether guesses were correct
     checkGuesses(firstNameGuess, firstNameAnswer);
     checkGuesses(lastNameGuess, lastNameAnswer);
     checkGuesses(ageGuess, ageAnswer);
@@ -83,6 +83,7 @@ function endGame() {
     unansweredText.innerHTML = unansweredCount;
 }
 
+// Function to check whether guesses were correct
 function checkGuesses(guess, answer) {
     // Check whether any radio button was checked in the group
     if (guess != null) {
